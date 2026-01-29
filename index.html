@@ -555,21 +555,70 @@
 
         /* Responsive design */
         @media (max-width: 768px) {
+            /* Disable heavy animations on mobile */
+            body {
+                animation: none;
+                background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            }
+
+            .bg-shapes {
+                display: none; /* Hide blurred shapes on mobile */
+            }
+
+            .shape {
+                animation: none;
+            }
+
+            .intro-overlay {
+                animation: fadeOutOverlay 0.5s ease-out 2s forwards;
+            }
+
+            .intro-text {
+                animation: simpleFadeIn 1.5s ease forwards;
+            }
+
+            .intro-text span {
+                animation: none;
+                opacity: 1;
+            }
+
+            @keyframes simpleFadeIn {
+                from {
+                    opacity: 0;
+                    transform: scale(0.8);
+                }
+                to {
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+
+            .bubble {
+                display: none; /* Hide bubbles on mobile */
+            }
+
             .container {
                 padding: 40px 30px;
                 margin: 20px;
+                animation: fadeIn 1s ease-in-out;
+                backdrop-filter: blur(10px);
             }
 
             h1 {
                 font-size: 2.5em;
+                animation: none;
+                filter: none;
             }
 
             .message {
                 font-size: 1.3em;
+                filter: none;
             }
 
             .love-message {
                 font-size: 1.5em;
+                animation: none;
+                filter: none;
             }
 
             .hearts-container {
@@ -579,6 +628,18 @@
             .heart {
                 width: 70px;
                 height: 70px;
+                animation: simpleHeartbeat 2s infinite;
+                filter: none;
+            }
+
+            @keyframes simpleHeartbeat {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.1); }
+            }
+
+            .heart:hover {
+                transform: scale(1.1);
+                filter: none;
             }
 
             .heart::before,
@@ -589,6 +650,16 @@
 
             .heart::before {
                 left: 35px;
+            }
+
+            .sparkle {
+                display: none; /* Disable sparkles on mobile */
+            }
+
+            body > .bubble,
+            body > .container {
+                opacity: 0;
+                animation: revealContent 1s ease-in 2.3s forwards;
             }
         }
     </style>
@@ -669,8 +740,13 @@
 
     <!-- Sparkles -->
     <script>
-        // Create explosive particles for intro
+        // Check if mobile device
+        const isMobile = window.innerWidth <= 768;
+
+        // Create explosive particles for intro (desktop only)
         function createIntroParticles() {
+            if (isMobile) return; // Skip on mobile
+            
             const overlay = document.querySelector('.intro-overlay');
             if (!overlay) return;
             
@@ -696,11 +772,15 @@
             }
         }
         
-        // Trigger particle explosion
-        setTimeout(createIntroParticles, 0);
+        // Trigger particle explosion (desktop only)
+        if (!isMobile) {
+            setTimeout(createIntroParticles, 0);
+        }
         
-        // Create random sparkles
+        // Create random sparkles (desktop only)
         function createSparkle() {
+            if (isMobile) return; // Skip on mobile
+            
             const sparkle = document.createElement('div');
             sparkle.className = 'sparkle';
             sparkle.style.left = Math.random() * 100 + '%';
@@ -712,10 +792,12 @@
             }, 2000);
         }
 
-        // Start sparkles after intro
-        setTimeout(() => {
-            setInterval(createSparkle, 300);
-        }, 5000);
+        // Start sparkles after intro (desktop only)
+        if (!isMobile) {
+            setTimeout(() => {
+                setInterval(createSparkle, 300);
+            }, 5000);
+        }
     </script>
 </body>
 </html>
