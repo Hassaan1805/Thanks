@@ -89,8 +89,8 @@
             }
         }
 
-        /* Intro animation overlay */
-        .intro-overlay {
+        /* Loading screen */
+        .loading-screen {
             position: fixed;
             top: 0;
             left: 0;
@@ -98,11 +98,13 @@
             height: 100%;
             background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
             background-size: 400% 400%;
-            animation: gradientShift 3s ease infinite, fadeOutOverlay 0.8s ease-out 4.2s forwards;
+            animation: gradientShift 3s ease infinite, fadeOutOverlay 1s ease-out 2.5s forwards;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 9999;
+            gap: 30px;
         }
 
         @keyframes fadeOutOverlay {
@@ -112,90 +114,44 @@
             }
         }
 
-        .intro-text {
-            font-size: 3.5em;
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            font-size: 1.5em;
             color: white;
-            font-weight: 900;
+            font-weight: 600;
             text-align: center;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
-            animation: textReveal 4s ease-in-out forwards;
+            animation: pulse 1.5s ease-in-out infinite;
         }
 
-        @keyframes textReveal {
-            0% {
-                opacity: 0;
-                transform: scale(0.5) rotate(-5deg);
-                letter-spacing: 20px;
-            }
-            20% {
-                opacity: 1;
-                transform: scale(1.2) rotate(2deg);
-                letter-spacing: 5px;
-            }
-            40% {
-                transform: scale(0.95) rotate(-1deg);
-                letter-spacing: 2px;
-            }
-            60% {
-                transform: scale(1.1) rotate(1deg);
-            }
-            80% {
-                transform: scale(1) rotate(0deg);
-                letter-spacing: normal;
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1.5) rotate(0deg);
-                letter-spacing: 3px;
-            }
-        }
-
-        .intro-text span {
+        .loading-dots {
             display: inline-block;
-            animation: letterPop 0.5s ease-out forwards;
-            opacity: 0;
+            width: 60px;
+            text-align: left;
         }
 
-        .intro-text span:nth-child(1) { animation-delay: 0.1s; }
-        .intro-text span:nth-child(2) { animation-delay: 0.2s; }
-        .intro-text span:nth-child(3) { animation-delay: 0.3s; }
-        .intro-text span:nth-child(4) { animation-delay: 0.4s; }
-        .intro-text span:nth-child(5) { animation-delay: 0.5s; }
-        .intro-text span:nth-child(6) { animation-delay: 0.6s; }
-        .intro-text span:nth-child(7) { animation-delay: 0.7s; }
-        .intro-text span:nth-child(8) { animation-delay: 0.8s; }
-        .intro-text span:nth-child(9) { animation-delay: 0.9s; }
-        .intro-text span:nth-child(10) { animation-delay: 1.0s; }
-        .intro-text span:nth-child(11) { animation-delay: 1.1s; }
-        .intro-text span:nth-child(12) { animation-delay: 1.2s; }
-        .intro-text span:nth-child(13) { animation-delay: 1.3s; }
-        .intro-text span:nth-child(14) { animation-delay: 1.4s; }
-        .intro-text span:nth-child(15) { animation-delay: 1.5s; }
-        .intro-text span:nth-child(16) { animation-delay: 1.6s; }
-        .intro-text span:nth-child(17) { animation-delay: 1.7s; }
-        .intro-text span:nth-child(18) { animation-delay: 1.8s; }
-        .intro-text span:nth-child(19) { animation-delay: 1.9s; }
-        .intro-text span:nth-child(20) { animation-delay: 2.0s; }
-        .intro-text span:nth-child(21) { animation-delay: 2.1s; }
-        .intro-text span:nth-child(22) { animation-delay: 2.2s; }
-        .intro-text span:nth-child(23) { animation-delay: 2.3s; }
-        .intro-text span:nth-child(24) { animation-delay: 2.4s; }
-        .intro-text span:nth-child(25) { animation-delay: 2.5s; }
-        .intro-text span:nth-child(26) { animation-delay: 2.6s; }
-        .intro-text span:nth-child(27) { animation-delay: 2.7s; }
+        .loading-dots::after {
+            content: '';
+            animation: dots 1.5s steps(4, end) infinite;
+        }
 
-        @keyframes letterPop {
-            0% {
-                opacity: 0;
-                transform: translateY(50px) scale(0);
-            }
-            50% {
-                transform: translateY(-20px) scale(1.3);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0) scale(1);
-            }
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
         }
 
         .intro-particles {
@@ -222,7 +178,7 @@
         body > .bubble,
         body > .container {
             opacity: 0;
-            animation: revealContent 1s ease-in 4.5s forwards;
+            animation: revealContent 1s ease-in 3s forwards;
         }
 
         @keyframes revealContent {
@@ -558,7 +514,8 @@
             /* Disable heavy animations on mobile */
             body {
                 animation: none;
-                background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+                background: linear-gradient(180deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+                padding: 20px;
             }
 
             .bg-shapes {
@@ -569,12 +526,27 @@
                 animation: none;
             }
 
-            .intro-overlay {
-                animation: fadeOutOverlay 0.5s ease-out 2s forwards;
+            .loading-screen {
+                animation: gradientShift 3s ease infinite, fadeOutOverlay 1s ease-out 1.8s forwards;
+            }
+
+            .loader {
+                width: 60px;
+                height: 60px;
+                border-width: 6px;
+            }
+
+            .loading-text {
+                font-size: 1.2em;
+                padding: 0 20px;
             }
 
             .intro-text {
+                font-size: 2em;
                 animation: simpleFadeIn 1.5s ease forwards;
+                padding: 0 20px;
+                word-spacing: 9999px;
+                line-height: 1.8;
             }
 
             .intro-text span {
@@ -598,43 +570,57 @@
             }
 
             .container {
-                padding: 40px 30px;
-                margin: 20px;
+                padding: 50px 25px;
+                margin: 0;
                 animation: fadeIn 1s ease-in-out;
-                backdrop-filter: blur(10px);
+                backdrop-filter: blur(15px);
+                border-radius: 30px;
+                width: 100%;
+                max-width: 100%;
+                box-shadow: 
+                    0 15px 40px rgba(0, 0, 0, 0.4),
+                    0 0 0 1px rgba(255, 255, 255, 0.4) inset;
             }
 
             h1 {
-                font-size: 2.5em;
+                font-size: 2.8em;
                 animation: none;
                 filter: none;
+                margin-bottom: 25px;
+                line-height: 1.2;
             }
 
             .message {
-                font-size: 1.3em;
+                font-size: 1.4em;
                 filter: none;
+                margin: 20px 0;
+                line-height: 1.6;
             }
 
             .love-message {
-                font-size: 1.5em;
+                font-size: 1.6em;
                 animation: none;
                 filter: none;
+                margin-top: 25px;
+                line-height: 1.4;
             }
 
             .hearts-container {
-                gap: 30px;
+                gap: 25px;
+                margin-top: 40px;
+                flex-wrap: wrap;
             }
 
             .heart {
-                width: 70px;
-                height: 70px;
+                width: 80px;
+                height: 80px;
                 animation: simpleHeartbeat 2s infinite;
                 filter: none;
             }
 
             @keyframes simpleHeartbeat {
                 0%, 100% { transform: scale(1); }
-                50% { transform: scale(1.1); }
+                50% { transform: scale(1.15); }
             }
 
             .heart:hover {
@@ -644,12 +630,12 @@
 
             .heart::before,
             .heart::after {
-                width: 36px;
-                height: 56px;
+                width: 42px;
+                height: 64px;
             }
 
             .heart::before {
-                left: 35px;
+                left: 40px;
             }
 
             .sparkle {
@@ -659,7 +645,40 @@
             body > .bubble,
             body > .container {
                 opacity: 0;
-                animation: revealContent 1s ease-in 2.3s forwards;
+                animation: revealContent 1s ease-in 3s forwards;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            .message {
+                font-size: 1.2em;
+            }
+
+            .love-message {
+                font-size: 1.4em;
+            }
+
+            .heart {
+                width: 60px;
+                height: 60px;
+            }
+
+            .heart::before,
+            .heart::after {
+                width: 31px;
+                height: 48px;
+            }
+
+            .heart::before {
+                left: 30px;
             }
         }
     </style>
@@ -672,40 +691,11 @@
         <div class="shape"></div>
     </div>
 
-    <!-- Intro Animation -->
-    <div class="intro-overlay">
-        <div class="intro-text" id="introText">
-            <span>I</span>
-            <span> </span>
-            <span>h</span>
-            <span>a</span>
-            <span>v</span>
-            <span>e</span>
-            <span> </span>
-            <span>s</span>
-            <span>o</span>
-            <span>m</span>
-            <span>e</span>
-            <span>t</span>
-            <span>h</span>
-            <span>i</span>
-            <span>n</span>
-            <span>g</span>
-            <span> </span>
-            <span>t</span>
-            <span>o</span>
-            <span> </span>
-            <span>t</span>
-            <span>e</span>
-            <span>l</span>
-            <span>l</span>
-            <span> </span>
-            <span>y</span>
-            <span>o</span>
-            <span>u</span>
-            <span>.</span>
-            <span>.</span>
-            <span>.</span>
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader"></div>
+        <div class="loading-text">
+            Loading<span class="loading-dots"></span>
         </div>
     </div>
 
@@ -742,40 +732,6 @@
     <script>
         // Check if mobile device
         const isMobile = window.innerWidth <= 768;
-
-        // Create explosive particles for intro (desktop only)
-        function createIntroParticles() {
-            if (isMobile) return; // Skip on mobile
-            
-            const overlay = document.querySelector('.intro-overlay');
-            if (!overlay) return;
-            
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => {
-                    const particle = document.createElement('div');
-                    particle.className = 'intro-particles';
-                    
-                    const angle = (Math.PI * 2 * i) / 50;
-                    const distance = 200 + Math.random() * 300;
-                    const x = Math.cos(angle) * distance;
-                    const y = Math.sin(angle) * distance;
-                    
-                    particle.style.setProperty('--x', `${x}px`);
-                    particle.style.setProperty('--y', `${y}px`);
-                    particle.style.left = '50%';
-                    particle.style.top = '50%';
-                    
-                    overlay.appendChild(particle);
-                    
-                    setTimeout(() => particle.remove(), 3000);
-                }, 3500 + Math.random() * 500);
-            }
-        }
-        
-        // Trigger particle explosion (desktop only)
-        if (!isMobile) {
-            setTimeout(createIntroParticles, 0);
-        }
         
         // Create random sparkles (desktop only)
         function createSparkle() {
@@ -792,11 +748,11 @@
             }, 2000);
         }
 
-        // Start sparkles after intro (desktop only)
+        // Start sparkles after loading (desktop only)
         if (!isMobile) {
             setTimeout(() => {
                 setInterval(createSparkle, 300);
-            }, 5000);
+            }, 3000);
         }
     </script>
 </body>
