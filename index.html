@@ -328,15 +328,15 @@
         h1 {
             font-family: 'Pacifico', cursive;
             font-size: 3.8em;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
             margin-bottom: 30px;
-            text-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
-            animation: pulse 2s infinite, textShimmer 3s infinite;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.8),
+                0 0 20px rgba(255, 255, 255, 0.6),
+                0 4px 10px rgba(0, 0, 0, 0.3),
+                0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
             font-weight: 400;
-            filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
         }
 
         @keyframes textShimmer {
@@ -359,36 +359,41 @@
 
         .message {
             font-size: 1.8em;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: white;
             margin: 25px 0;
             font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.5),
+                0 2px 8px rgba(0, 0, 0, 0.3);
             line-height: 1.5;
-            filter: drop-shadow(0 0 15px rgba(240, 93, 251, 0.4));
         }
 
         .love-message {
             font-size: 2.1em;
-            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #FFE66D;
             margin-top: 30px;
             font-weight: 700;
             animation: glow 3s infinite;
-            filter: drop-shadow(0 0 20px rgba(254, 225, 64, 0.5));
+            text-shadow: 
+                0 0 15px rgba(255, 230, 109, 0.8),
+                0 0 25px rgba(255, 230, 109, 0.6),
+                0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes glow {
             0%, 100% {
-                filter: drop-shadow(0 0 20px rgba(254, 225, 64, 0.5));
+                text-shadow: 
+                    0 0 15px rgba(255, 230, 109, 0.8),
+                    0 0 25px rgba(255, 230, 109, 0.6),
+                    0 2px 10px rgba(0, 0, 0, 0.3);
                 transform: scale(1);
             }
             50% {
-                filter: drop-shadow(0 0 40px rgba(254, 225, 64, 0.8)) drop-shadow(0 0 60px rgba(250, 112, 154, 0.6));
+                text-shadow: 
+                    0 0 25px rgba(255, 230, 109, 1),
+                    0 0 40px rgba(255, 230, 109, 0.8),
+                    0 0 60px rgba(255, 215, 0, 0.6),
+                    0 2px 10px rgba(0, 0, 0, 0.3);
                 transform: scale(1.02);
             }
         }
@@ -585,14 +590,12 @@
             h1 {
                 font-size: 2.8em;
                 animation: none;
-                filter: none;
                 margin-bottom: 25px;
                 line-height: 1.2;
             }
 
             .message {
                 font-size: 1.4em;
-                filter: none;
                 margin: 20px 0;
                 line-height: 1.6;
             }
@@ -600,7 +603,6 @@
             .love-message {
                 font-size: 1.6em;
                 animation: none;
-                filter: none;
                 margin-top: 25px;
                 line-height: 1.4;
             }
