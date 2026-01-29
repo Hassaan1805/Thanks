@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Amazing Friends 💛</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animated background shapes */
+        .bg-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            top: -100px;
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            bottom: -100px;
+            right: -100px;
+            animation-delay: 3s;
+        }
+
+        .shape:nth-child(3) {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            top: 50%;
+            left: 50%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            33% {
+                transform: translate(50px, -50px) scale(1.1);
+            }
+            66% {
+                transform: translate(-50px, 50px) scale(0.9);
+            }
+        }
+
+        /* Intro animation overlay */
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite, fadeOutOverlay 0.8s ease-out 4.2s forwards;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        @keyframes fadeOutOverlay {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        .intro-text {
+            font-size: 3.5em;
+            color: white;
+            font-weight: 900;
+            text-align: center;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            animation: textReveal 4s ease-in-out forwards;
+        }
+
+        @keyframes textReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) rotate(-5deg);
+                letter-spacing: 20px;
+            }
+            20% {
+                opacity: 1;
+                transform: scale(1.2) rotate(2deg);
+                letter-spacing: 5px;
+            }
+            40% {
+                transform: scale(0.95) rotate(-1deg);
+                letter-spacing: 2px;
+            }
+            60% {
+                transform: scale(1.1) rotate(1deg);
+            }
+            80% {
+                transform: scale(1) rotate(0deg);
+                letter-spacing: normal;
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1.5) rotate(0deg);
+                letter-spacing: 3px;
+            }
+        }
+
+        .intro-text span {
+            display: inline-block;
+            animation: letterPop 0.5s ease-out forwards;
+            opacity: 0;
+        }
+
+        .intro-text span:nth-child(1) { animation-delay: 0.1s; }
+        .intro-text span:nth-child(2) { animation-delay: 0.2s; }
+        .intro-text span:nth-child(3) { animation-delay: 0.3s; }
+        .intro-text span:nth-child(4) { animation-delay: 0.4s; }
+        .intro-text span:nth-child(5) { animation-delay: 0.5s; }
+        .intro-text span:nth-child(6) { animation-delay: 0.6s; }
+        .intro-text span:nth-child(7) { animation-delay: 0.7s; }
+        .intro-text span:nth-child(8) { animation-delay: 0.8s; }
+        .intro-text span:nth-child(9) { animation-delay: 0.9s; }
+        .intro-text span:nth-child(10) { animation-delay: 1.0s; }
+        .intro-text span:nth-child(11) { animation-delay: 1.1s; }
+        .intro-text span:nth-child(12) { animation-delay: 1.2s; }
+        .intro-text span:nth-child(13) { animation-delay: 1.3s; }
+        .intro-text span:nth-child(14) { animation-delay: 1.4s; }
+        .intro-text span:nth-child(15) { animation-delay: 1.5s; }
+        .intro-text span:nth-child(16) { animation-delay: 1.6s; }
+        .intro-text span:nth-child(17) { animation-delay: 1.7s; }
+        .intro-text span:nth-child(18) { animation-delay: 1.8s; }
+        .intro-text span:nth-child(19) { animation-delay: 1.9s; }
+        .intro-text span:nth-child(20) { animation-delay: 2.0s; }
+        .intro-text span:nth-child(21) { animation-delay: 2.1s; }
+        .intro-text span:nth-child(22) { animation-delay: 2.2s; }
+        .intro-text span:nth-child(23) { animation-delay: 2.3s; }
+        .intro-text span:nth-child(24) { animation-delay: 2.4s; }
+        .intro-text span:nth-child(25) { animation-delay: 2.5s; }
+        .intro-text span:nth-child(26) { animation-delay: 2.6s; }
+        .intro-text span:nth-child(27) { animation-delay: 2.7s; }
+
+        @keyframes letterPop {
+            0% {
+                opacity: 0;
+                transform: translateY(50px) scale(0);
+            }
+            50% {
+                transform: translateY(-20px) scale(1.3);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .intro-particles {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: particleFloat 3s ease-out forwards;
+        }
+
+        @keyframes particleFloat {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--x), var(--y)) scale(0);
+            }
+        }
+
+        /* Hide main content initially */
+        body > .bubble,
+        body > .container {
+            opacity: 0;
+            animation: revealContent 1s ease-in 4.5s forwards;
+        }
+
+        @keyframes revealContent {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Floating bubbles animation */
+        .bubble {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: rise 10s infinite ease-in;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(100px);
+            }
+            100% {
+                bottom: 110vh;
+                transform: translateX(-100px);
+            }
+        }
+
+        .bubble:nth-child(1) {
+            left: 10%;
+            width: 50px;
+            height: 50px;
+            background: #5c72c5;
+            animation-delay: 0s;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(2) {
+            left: 20%;
+            width: 30px;
+            height: 30px;
+            background: #f1e718;
+            animation-delay: 2s;
+            animation-duration: 10s;
+        }
+
+        .bubble:nth-child(3) {
+            left: 35%;
+            width: 60px;
+            height: 60px;
+            background: #f08080;
+            animation-delay: 4s;
+            animation-duration: 12s;
+        }
+
+        .bubble:nth-child(4) {
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            background: #f2003c;
+            animation-delay: 0s;
+            animation-duration: 9s;
+        }
+
+        .bubble:nth-child(5) {
+            left: 65%;
+            width: 45px;
+            height: 45px;
+            background: #5c72c5;
+            animation-delay: 3s;
+            animation-duration: 11s;
+        }
+
+        .bubble:nth-child(6) {
+            left: 75%;
+            width: 35px;
+            height: 35px;
+            background: #f1e718;
+            animation-delay: 5s;
+            animation-duration: 8s;
+        }
+
+        .bubble:nth-child(7) {
+            left: 85%;
+            width: 55px;
+            height: 55px;
+            background: #f08080;
+            animation-delay: 1s;
+            animation-duration: 13s;
+        }
+
+        .bubble:nth-child(8) {
+            left: 90%;
+            width: 38px;
+            height: 38px;
+            background: #f2003c;
+            animation-delay: 6s;
+            animation-duration: 10s;
+        }
+
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            padding: 60px 80px;
+            border-radius: 40px;
+            box-shadow: 
+                0 25px 70px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+                0 10px 40px rgba(255, 255, 255, 0.1) inset;
+            animation: fadeIn 1.5s ease-in-out, containerFloat 6s ease-in-out infinite;
+            max-width: 900px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        @keyframes containerFloat {
+            0%, 100% {
+                transform: translateY(0) rotateX(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotateX(2deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.8em;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            text-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            animation: pulse 2s infinite, textShimmer 3s infinite;
+            font-weight: 400;
+            filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5));
+        }
+
+        @keyframes textShimmer {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(102, 126, 234, 0.5)) hue-rotate(0deg);
+            }
+            50% {
+                filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.8)) hue-rotate(10deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .message {
+            font-size: 1.8em;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 25px 0;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            line-height: 1.5;
+            filter: drop-shadow(0 0 15px rgba(240, 93, 251, 0.4));
+        }
+
+        .love-message {
+            font-size: 2.1em;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-top: 30px;
+            font-weight: 700;
+            animation: glow 3s infinite;
+            filter: drop-shadow(0 0 20px rgba(254, 225, 64, 0.5));
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                filter: drop-shadow(0 0 20px rgba(254, 225, 64, 0.5));
+                transform: scale(1);
+            }
+            50% {
+                filter: drop-shadow(0 0 40px rgba(254, 225, 64, 0.8)) drop-shadow(0 0 60px rgba(250, 112, 154, 0.6));
+                transform: scale(1.02);
+            }
+        }
+
+        /* Hearts */
+        .hearts-container {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            margin-top: 50px;
+        }
+
+        .heart {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            animation: heartbeat 1.5s infinite;
+            filter: drop-shadow(0 10px 30px rgba(242, 0, 60, 0.5));
+            transition: transform 0.3s ease;
+        }
+
+        .heart:hover {
+            transform: scale(1.3) rotate(10deg);
+            filter: drop-shadow(0 15px 40px rgba(242, 0, 60, 0.8));
+        }
+
+        .heart:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .heart:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .heart:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            25% {
+                transform: scale(1.25);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            75% {
+                transform: scale(1.3);
+            }
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            width: 52px;
+            height: 80px;
+            border-radius: 50px 50px 0 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .heart::before {
+            left: 50px;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart::after {
+            left: 0;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+        }
+
+        .heart:nth-child(2)::before,
+        .heart:nth-child(2)::after {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .heart:nth-child(3)::before,
+        .heart:nth-child(3)::after {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(135deg, #fff, #ffd700);
+            border-radius: 50%;
+            box-shadow: 
+                0 0 10px white,
+                0 0 20px rgba(255, 215, 0, 0.8),
+                0 0 30px rgba(255, 215, 0, 0.6);
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0) rotate(0deg);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5) rotate(180deg);
+            }
+        }
+
+        /* Generate random sparkles */
+        .sparkle:nth-child(odd) {
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(even) {
+            animation-delay: 1s;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 30px;
+                margin: 20px;
+            }
+
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .message {
+                font-size: 1.3em;
+            }
+
+            .love-message {
+                font-size: 1.5em;
+            }
+
+            .hearts-container {
+                gap: 30px;
+            }
+
+            .heart {
+                width: 70px;
+                height: 70px;
+            }
+
+            .heart::before,
+            .heart::after {
+                width: 36px;
+                height: 56px;
+            }
+
+            .heart::before {
+                left: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated background shapes -->
+    <div class="bg-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Intro Animation -->
+    <div class="intro-overlay">
+        <div class="intro-text" id="introText">
+            <span>I</span>
+            <span> </span>
+            <span>h</span>
+            <span>a</span>
+            <span>v</span>
+            <span>e</span>
+            <span> </span>
+            <span>s</span>
+            <span>o</span>
+            <span>m</span>
+            <span>e</span>
+            <span>t</span>
+            <span>h</span>
+            <span>i</span>
+            <span>n</span>
+            <span>g</span>
+            <span> </span>
+            <span>t</span>
+            <span>o</span>
+            <span> </span>
+            <span>t</span>
+            <span>e</span>
+            <span>l</span>
+            <span>l</span>
+            <span> </span>
+            <span>y</span>
+            <span>o</span>
+            <span>u</span>
+            <span>.</span>
+            <span>.</span>
+            <span>.</span>
+        </div>
+    </div>
+
+    <!-- Floating bubbles -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <!-- Main content -->
+    <div class="container">
+        <h1>To My Beautiful Friends</h1>
+        
+        <p class="message">
+            You make my life brighter every day
+        </p>
+        
+        <p class="love-message">
+            I love you more than words can ever describe 💛
+        </p>
+
+        <div class="hearts-container">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+    </div>
+
+    <!-- Sparkles -->
+    <script>
+        // Create explosive particles for intro
+        function createIntroParticles() {
+            const overlay = document.querySelector('.intro-overlay');
+            if (!overlay) return;
+            
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'intro-particles';
+                    
+                    const angle = (Math.PI * 2 * i) / 50;
+                    const distance = 200 + Math.random() * 300;
+                    const x = Math.cos(angle) * distance;
+                    const y = Math.sin(angle) * distance;
+                    
+                    particle.style.setProperty('--x', `${x}px`);
+                    particle.style.setProperty('--y', `${y}px`);
+                    particle.style.left = '50%';
+                    particle.style.top = '50%';
+                    
+                    overlay.appendChild(particle);
+                    
+                    setTimeout(() => particle.remove(), 3000);
+                }, 3500 + Math.random() * 500);
+            }
+        }
+        
+        // Trigger particle explosion
+        setTimeout(createIntroParticles, 0);
+        
+        // Create random sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.top = Math.random() * 100 + '%';
+            document.body.appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 2000);
+        }
+
+        // Start sparkles after intro
+        setTimeout(() => {
+            setInterval(createSparkle, 300);
+        }, 5000);
+    </script>
+</body>
+</html>
